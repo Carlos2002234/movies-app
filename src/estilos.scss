@@ -1,0 +1,713 @@
+//variables
+
+$colorP: #ffffffff;
+$colorS: #242840;
+$shadow: 0pc 1px 10px rgba(0, 0, 0, 0.5);
+$colorBtn: #0899c0;
+$oscuro: rgba(0, 0, 0, 0.8);
+
+//mixin de botones
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  // outline: 1px solid red;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100vh;
+  background: #141414;
+  background-color: #242840;
+}
+
+//nav
+
+.nav {
+  height: 90px;
+  background-color: $colorS;
+  box-shadow: $shadow;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .nav__title {
+    font-size: 1.8rem;
+    color: $colorP;
+    font-weight: normal;
+    //line-height: 90px;
+
+    span {
+      font-weight: bolder;
+    }
+  }
+
+  .nav__input {
+    display: block;
+    border-radius: 3px;
+    padding: 3px;
+    border: none;
+    background-color: transparent;
+    color: $colorP;
+    outline: none;
+  }
+
+  .nav__icon {
+    font-size: 1.8rem;
+    color: $colorP;
+    cursor: pointer;
+  }
+}
+
+.menuC {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 45%;
+  z-index: 999;
+  background-color: $oscuro;
+  transform: translateX(-100%);
+  transition: all 1s ease;
+
+  .menuC__options {
+    display: block;
+    color: $colorP;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+  }
+}
+
+.active {
+  transform: translateX(0);
+}
+//class hide menu
+
+.hidden {
+  visibility: hidden;
+}
+
+//cards
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  margin-top: 3%;
+
+  .card {
+    width: 85%;
+    height: 300px;
+    box-shadow: $shadow;
+    margin-top: 5%;
+    transition: all 1s ease;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 35px;
+    border-radius: 3px;
+    background-color: #444745;
+    overflow: hidden;
+    position: relative;
+
+    &:hover {
+      border: 1px solid #ffffffff;
+    }
+
+    .card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .card__title {
+      text-align: center;
+      font-weight: normal;
+      color: $colorP;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .card__popularity {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      text-align: center;
+      color: $colorP;
+      position: absolute;
+      top: 0;
+      left: 1;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      background-color: lighten($color: blue, $amount: 15);
+      font-weight: normal;
+    }
+  }
+}
+
+//information part
+
+.containerP {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: $oscuro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  transform: translateY(-10px);
+  cursor: pointer;
+
+  .infoC {
+    width: 85%;
+    height: 550px;
+    box-shadow: $shadow;
+    background-color: $colorS;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 3px;
+    cursor: pointer;
+
+    .infoC__img {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .infoC__title {
+      text-align: center;
+      color: $colorP;
+      font-weight: normal;
+    }
+
+    .infoC__date {
+      text-align: center;
+      color: $colorP;
+      font-weight: normal;
+      margin-bottom: 1em;
+    }
+
+    .infoC__description {
+      line-height: 1.5;
+      text-align: center;
+      color: $colorP;
+      font-weight: normal;
+      font-size: 1.2rem;
+      border: 1px solid #003a5b;
+      padding: 10px;
+      max-height: 100px;
+      box-shadow: $shadow;
+      font-weight: normal;
+      overflow: hidden;
+      border-radius: 3px;
+    }
+
+    .infoC__trailer {
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+      background-color: lighten($color: red, $amount: 10);
+      color: $colorP;
+      border: none;
+      border-radius: 3px;
+      padding: 5px;
+      margin-top: 5%;
+    }
+  }
+
+  //close info
+
+  .btnClose {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: $colorS;
+    color: $colorP;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    box-shadow: $shadow;
+    border-radius: 100%;
+    position: absolute;
+    right: 0;
+    left: 10px;
+    bottom: 0;
+    top: 20px;
+  }
+}
+
+//btns of next and after
+
+.containerBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 0;
+  gap: 10px;
+
+  .btnNext {
+    padding: 10px;
+    border: none;
+    box-shadow: $shadow;
+    color: $colorP;
+    background-color: $colorS;
+    cursor: pointer;
+    border-radius: 100%;
+  }
+
+  .btnBefore {
+    padding: 10px;
+    border: none;
+    box-shadow: $shadow;
+    color: $colorP;
+    background-color: $colorS;
+    cursor: pointer;
+    border-radius: 100%;
+  }
+}
+
+.none {
+  display: none;
+}
+
+//container btns
+
+.containerGeneros {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  place-items: center;
+  margin-top: 5%;
+
+  .botoneGenero {
+    display: block;
+    border: 1px solid #444745;
+    color: #000;
+    border-radius: 10px;
+    padding: 3px;
+    background-color: $colorP;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: $colorP;
+    }
+  }
+}
+
+//media queries
+
+//dispositivos grandes
+
+@media only screen and (min-width: 1200px) {
+  .cardsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    place-items: center;
+
+    .card {
+      width: 80%;
+      height: 300px;
+      box-shadow: $shadow;
+      margin-top: 5%;
+      transition: all 1s ease;
+      padding-top: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-bottom: 35px;
+      border-radius: 3px;
+      background-color: #444745;
+      overflow: hidden;
+
+      .card__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .card__title {
+        text-align: center;
+        font-weight: normal;
+        color: $colorP;
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+
+  //info
+
+  .containerP {
+    .infoC {
+      width: 80%;
+      height: 550px;
+      box-shadow: $shadow;
+      background-color: $colorS;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      border-radius: 3px;
+      cursor: pointer;
+
+      .infoC__img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      .infoC__title {
+        text-align: center;
+        color: $colorP;
+        font-weight: normal;
+        font-size: 3rem;
+      }
+
+      .infoC__date {
+        text-align: center;
+        color: $colorP;
+        font-weight: normal;
+        margin-bottom: 1em;
+      }
+
+      .infoC__description {
+        display: block;
+        line-height: 2;
+        text-align: center;
+        color: $colorP;
+        font-weight: normal;
+        font-size: 1.3rem;
+        border: 1px solid #003a5b;
+        padding: 30px;
+        max-height: 3000px;
+        //box-shadow: $shadow;
+        font-weight: normal;
+        overflow: visible;
+        border-radius: 3px;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .infoC__trailer {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        background-color: lighten($color: red, $amount: 10);
+        color: $colorP;
+        border: none;
+        border-radius: 3px;
+        padding: 5px;
+        margin-top: 5%;
+        cursor: pointer;
+      }
+    }
+  }
+  
+.containerGeneros {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  place-items: center;
+  margin-top: 5%;
+
+  .botoneGenero {
+    display: block;
+    border: 1px solid #444745;
+    color: #000;
+    border-radius: 10px;
+    padding: 3px;
+    background-color: $colorP;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: $colorP;
+    }
+  }
+}
+
+}
+
+/* Escritorio grande */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .cardsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+
+    .card {
+      width: 80%;
+      height: 300px;
+      box-shadow: $shadow;
+      margin-top: 5%;
+      transition: all 1s ease;
+      padding-top: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-bottom: 35px;
+      border-radius: 3px;
+      background-color: #444745;
+      overflow: hidden;
+
+      .card__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .card__title {
+        text-align: center;
+        font-weight: normal;
+        color: $colorP;
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+
+  //info
+
+  .containerP {
+    .infoC {
+      width: 80%;
+      height: 550px;
+      box-shadow: $shadow;
+      background-color: $colorS;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      border-radius: 3px;
+      cursor: pointer;
+
+      .infoC__img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      .infoC__title {
+        text-align: center;
+        color: $colorP;
+        font-weight: normal;
+        font-size: 3rem;
+      }
+
+      .infoC__date {
+        text-align: center;
+        color: $colorP;
+        font-weight: normal;
+        margin-bottom: 1em;
+      }
+
+      .infoC__description {
+        display: block;
+        line-height: 2;
+        text-align: center;
+        color: $colorP;
+        font-weight: normal;
+        font-size: 1.3rem;
+        border: 1px solid #003a5b;
+        padding: 30px;
+        max-height: 3000px;
+        //box-shadow: $shadow;
+        font-weight: normal;
+        overflow: visible;
+        border-radius: 3px;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .infoC__trailer {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        background-color: lighten($color: red, $amount: 10);
+        color: $colorP;
+        border: none;
+        border-radius: 3px;
+        padding: 5px;
+        margin-top: 5%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .containerGeneros {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    gap: 10px;
+    place-items: center;
+    margin-top: 5%;
+
+    .botoneGenero {
+      display: block;
+      border: 1px solid #444745;
+      color: #000;
+      border-radius: 10px;
+      padding: 3px;
+      background-color: $colorP;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.5s;
+
+      &:hover {
+        background-color: $colorP;
+      }
+    }
+  }
+}
+
+/* Escritorio pequeño / tablet */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .cardsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+
+    .card {
+      width: 80%;
+      height: 300px;
+      box-shadow: $shadow;
+      margin-top: 5%;
+      transition: all 1s ease;
+      padding-top: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-bottom: 35px;
+      border-radius: 3px;
+      background-color: #444745;
+      overflow: hidden;
+
+      .card__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .card__title {
+        text-align: center;
+        font-weight: normal;
+        color: $colorP;
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+
+  //info
+
+  .containerP {
+    .infoC {
+      width: 80%;
+      height: 550px;
+      box-shadow: $shadow;
+      background-color: $colorS;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      border-radius: 3px;
+      cursor: pointer;
+
+      .infoC__img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      .infoC__title {
+        text-align: center;
+        color: $colorP;
+        font-weight: normal;
+        font-size: 3rem;
+      }
+
+      .infoC__date {
+        text-align: center;
+        color: $colorP;
+        font-weight: normal;
+        margin-bottom: 1em;
+      }
+
+      .infoC__description {
+        display: block;
+        line-height: 2;
+        text-align: center;
+        color: $colorP;
+        font-weight: normal;
+        font-size: 1.3rem;
+        border: 1px solid #003a5b;
+        padding: 30px;
+        max-height: 3000px;
+        //box-shadow: $shadow;
+        font-weight: normal;
+        overflow: visible;
+        border-radius: 3px;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .infoC__trailer {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        background-color: lighten($color: red, $amount: 10);
+        color: $colorP;
+        border: none;
+        border-radius: 3px;
+        padding: 5px;
+        margin-top: 5%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .containerGeneros {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    place-items: center;
+    margin-top: 5%;
+
+    .botoneGenero {
+      display: block;
+      border: 1px solid #444745;
+      color: #000;
+      border-radius: 10px;
+      padding: 3px;
+      background-color: $colorP;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.5s;
+
+      &:hover {
+        background-color: $colorP;
+      }
+    }
+  }
+}
