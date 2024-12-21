@@ -12,8 +12,6 @@ A simple movie app that allows users to interact with a movie API to search for 
 - Responsive and user-friendly interface built with React.
 - Consumes a third-party API to fetch movie data.
 
-## Demo
-
 ## Technologies Used
 
 - React
