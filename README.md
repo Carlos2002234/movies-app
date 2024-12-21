@@ -31,7 +31,7 @@ A simple movie app that allows users to interact with a movie API to search for 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/<your-username>/movie-app.git
+   git clone https://github.com/Carlos2002234/movies-app.git
    cd movie-app
    npm i
-   npm run start
+   npm run start 
