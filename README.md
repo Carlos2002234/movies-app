@@ -16,18 +16,14 @@ A simple movie app that allows users to interact with a movie API to search for 
 - React
 - Styled-components
 - Axios (or fetch for API calls)
-- Movie Database API (or whichever API you're using)
-
-## Installation
-
-Follow these steps to run the app locally:
+- Movie Database API 
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v14 or higher)
 - [npm](https://www.npmjs.com/) (v6 or higher)
 
-### Steps
+## Installation
 
 1. Clone the repository:
 
