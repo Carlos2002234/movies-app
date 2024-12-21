@@ -2,6 +2,9 @@
 
 A simple movie app that allows users to interact with a movie API to search for and display information about movies.
 
+![image](https://github.com/user-attachments/assets/3cab18f5-f993-414a-b942-e7516ffd9c23)
+
+
 ## Features
 
 - Search for movies by title.
